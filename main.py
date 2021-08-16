@@ -1,15 +1,14 @@
 # guessing game in python
 
-print("Choose a number in the interval [1..100]")
-print("I bet I can guess it in no more than 7 tries!")
-
-
 def guess_the_number():
+    
+    print("Choose a number in the interval [1..100]")
+    print("I bet I can guess it in no more than 7 tries!")
     positive_answer = {"y", "yes"}
     negative_answer = {"n", "no"}
     lowerbound = 1
     upperbound = 100
-    guess = (1 + 100) // 2;
+    guess = (1 + 100) // 2
     found, won = False, False
     i = 0
   
@@ -38,13 +37,15 @@ def guess_the_number():
                             traversed = True
                             won = True
                             break
-
                        else:
                            continue
             else:
                 break
-    else:
+    elif start_game in negative_answer:
         print("Goodbye!")
-
-
+    else:
+        print("Unvalid unswer. Bye!")
+    if won == False and i == 7:
+        print("\nSomething smells fishy don't you think so?")
+        
 guess_the_number()
