@@ -13,36 +13,36 @@ def guess_the_number():
     found, won = False, False
     i = 0
   
-
     start_game = input("Are you ready? y/n: ")
     if (start_game in positive_answer):
         for attempt in range(1,8):
-            
-            traversed = False
-            i += 1
-            while not traversed:  
-                print(i)
-                if found == False:
-                   answer = list(input("I guess it is " + str(guess) + "!\nIs it [L]ow, [H]igh or [E]qual? ").lower().strip())
-                   if(answer == ["l"] or answer == ["low"]):
-                       lowerbound = guess
-                       guess = (lowerbound + upperbound)//2
-                       traversed = True
-                       continue
-                   elif(answer == ["h"] or answer == ["high"]):
-                       upperbound = guess
-                       guess = (lowerbound + upperbound)//2
-                       traversed = True
-                       continue
-                   elif(answer == ["e"] or answer == ["equal"]):
-                        print("Hurray! I won the game! In " + str(i) + " guesses. Yeah!!")
-                        traversed = True
-                        won = True
-                        break
+            if not won:
+                traversed = False
+                i += 1
+                while not traversed:  
+                    print(i)
+                    if found == False:
+                       answer = list(input("I guess it is " + str(guess) + "!\nIs it [L]ow, [H]igh or [E]qual? ").lower().strip())
+                       if(answer == ["l"] or answer == ["low"]):
+                           lowerbound = guess
+                           guess = (lowerbound + upperbound)//2
+                           traversed = True
+                           continue
+                       elif(answer == ["h"] or answer == ["high"]):
+                           upperbound = guess
+                           guess = (lowerbound + upperbound)//2
+                           traversed = True
+                           continue
+                       elif(answer == ["e"] or answer == ["equal"]):
+                            print("Hurray! I won the game in " + str(i) + " guesses. Yupp!!")
+                            traversed = True
+                            won = True
+                            break
 
-                   else:
-                       continue
-                    
+                       else:
+                           continue
+            else:
+                break
     else:
         print("Goodbye!")
 
