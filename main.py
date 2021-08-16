@@ -19,7 +19,6 @@ def guess_the_number():
                 traversed = False
                 i += 1
                 while not traversed:  
-                    print(i)
                     if found == False:
                        answer = list(input("I guess it is " + str(guess) + "!\nIs it [L]ow, [H]igh or [E]qual? ").lower().strip())
                        if(answer == ["l"] or answer == ["low"]):
